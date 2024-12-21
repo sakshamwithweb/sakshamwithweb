@@ -1,101 +1,37 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+      Velit consequat ex consectetur tempor esse esse non exercitation sint culpa esse do eiusmod aliquip. Lorem non ullamco ullamco veniam sit laborum laboris non ipsum. Consequat culpa laborum sit esse ad sunt. Velit elit ea nisi sint. Laboris adipisicing incididunt ullamco voluptate dolor consequat excepteur proident eu irure labore non anim Lorem. Cillum magna occaecat cillum deserunt.
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+Ipsum exercitation aliquip in sint. Magna irure laboris mollit commodo mollit sit proident deserunt nisi mollit elit et. Sit exercitation velit officia fugiat do magna. Aliquip duis voluptate elit ullamco sit id elit qui amet officia Lorem cillum magna do. Ullamco esse labore elit sint in consectetur sunt voluptate duis. Reprehenderit dolor deserunt amet anim quis eu laborum enim excepteur enim sit enim in.
+
+Nisi nisi laboris consequat adipisicing dolor sit aute aliqua eiusmod quis. Deserunt cupidatat amet ut proident proident velit ea velit dolor id consectetur. Amet proident nisi irure dolor elit ut officia. Aute id aute laborum elit. Irure et aute ea elit mollit eu velit adipisicing eu pariatur voluptate laborum ipsum elit.
+
+Pariatur voluptate sunt labore ad ullamco. Id pariatur exercitation est commodo aliqua. Irure do voluptate nulla cupidatat veniam ipsum dolore ipsum magna esse mollit. Magna ea ullamco pariatur amet. Culpa ullamco id elit adipisicing Lorem aute excepteur deserunt tempor. Nisi mollit pariatur culpa quis duis consectetur irure cillum elit laborum excepteur exercitation amet. Et proident dolor minim enim amet.
+
+Magna cillum nulla pariatur officia nisi nulla fugiat sunt id dolor commodo duis. Labore exercitation fugiat ut amet elit do commodo. Qui nostrud deserunt eu culpa minim consequat culpa tempor aliquip laboris cupidatat commodo ipsum. Sint proident enim deserunt laboris dolore mollit officia quis adipisicing veniam Lorem. Irure mollit fugiat deserunt incididunt laborum occaecat velit reprehenderit dolore proident enim excepteur cillum nostrud. Culpa esse ad in ipsum id labore aute do voluptate do consectetur.
+
+Deserunt sunt ut adipisicing excepteur occaecat ullamco. Quis nulla nulla non cupidatat adipisicing proident excepteur tempor fugiat aliqua. Magna commodo deserunt nostrud reprehenderit deserunt consectetur est anim duis quis veniam sit excepteur veniam.
+
+Qui reprehenderit veniam aute ex fugiat. Exercitation ipsum irure proident sit mollit ex excepteur tempor laborum sint sint. Adipisicing minim magna incididunt elit sint veniam do voluptate Lorem nulla do fugiat adipisicing. Anim adipisicing veniam in pariatur Lorem id nisi cupidatat duis mollit id. Non dolor dolore aliqua cillum.Eiusmod qui et pariatur occaecat ipsum cupidatat tempor. Veniam aliqua sint eu proident esse nulla. Dolor laboris cillum nulla exercitation eu fugiat duis velit occaecat irure ad ut reprehenderit dolor.
+
+Adipisicing nisi culpa aute aute. Culpa ut non adipisicing proident ullamco eu. Ipsum velit do fugiat tempor occaecat. Nulla Lorem nostrud aute non veniam occaecat.
+
+Do in ut minim et aliqua nostrud anim non mollit tempor magna dolore in labore. Ad ullamco velit adipisicing Lorem irure enim reprehenderit ipsum nostrud occaecat incididunt voluptate aute. Laboris elit laboris ea reprehenderit dolor nisi. Ea aute amet commodo sit. Quis voluptate anim qui est anim anim aliquip proident pariatur veniam occaecat minim.
+
+Exercitation duis ipsum duis reprehenderit. Magna duis duis nostrud ipsum exercitation pariatur sint irure duis incididunt. Elit consectetur minim non non sit eu reprehenderit enim aliquip enim sit ullamco.
+
+Laboris aliqua nisi proident ullamco exercitation veniam cupidatat aliquip. Pariatur non qui fugiat voluptate voluptate sunt ullamco incididunt velit eu commodo cillum. Adipisicing Lorem amet velit ullamco quis sint reprehenderit labore ex consectetur consectetur anim exercitation. Amet commodo tempor ea ipsum aliquip dolore do occaecat esse exercitation ipsum commodo nostrud. Dolor do aute incididunt quis exercitation laborum.
+
+Ea cillum Lorem culpa qui velit aute officia cillum cupidatat ut ex et nisi. Ut officia magna quis eu. Ex nulla consectetur aute aliquip ad est ea labore do labore magna.
+
+In in ipsum irure est eiusmod quis laboris velit id exercitation ullamco occaecat. Velit deserunt consequat adipisicing sit. Non labore voluptate qui sunt eu eiusmod id tempor qui consectetur aliqua. Deserunt ullamco veniam mollit commodo quis elit fugiat. Velit Lorem cupidatat irure culpa mollit reprehenderit id. Non cupidatat ipsum laborum qui non deserunt ipsum sit minim do veniam nulla sint dolor. Officia duis do labore labore elit.
+
+Consequat aute do laborum do. Veniam amet in ut est nostrud culpa nostrud elit. Consequat anim ullamco ipsum aute minim velit magna magna ut do cillum tempor. Magna nulla ad sit aute dolore sint nostrud aliquip laboris eiusmod incididunt incididunt nulla. Commodo qui exercitation adipisicing aliqua fugiat ullamco pariatur eiusmod veniam ex mollit consectetur culpa non. Magna excepteur nisi ut laboris sit.
+
+Cillum nisi magna dolor dolor magna id proident excepteur amet. Laborum ullamco cillum Lorem sit dolor nostrud Lorem enim velit. Ut exercitation culpa deserunt occaecat ullamco eiusmod reprehenderit. Eiusmod elit reprehenderit anim laborum occaecat ullamco do.
+
+Tempor cupidatat aliquip aliquip ad voluptate anim velit aliquip minim. Cillum reprehenderit est ipsum consectetur voluptate minim magna fugiat nisi sit tempor Lorem elit deserunt. Nisi ea excepteur consectetur cupidatat esse fugiat irure irure laboris tempor.
+    </main>
   );
 }
