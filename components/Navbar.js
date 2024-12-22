@@ -32,10 +32,10 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetTitle>SakshamWithWeb</SheetTitle>
                 <SheetDescription>
-                  <Link className='' href={`${process.env.NEXT_PUBLIC_PATH}/#main`}>Home</Link>
-                  <Link href={`${process.env.NEXT_PUBLIC_PATH}/#about`}>About</Link>
-                  <Link href={`${process.env.NEXT_PUBLIC_PATH}/#knowledge`}>Knowledge</Link>
-                  <Link className='' href={`${process.env.NEXT_PUBLIC_PATH}/#projects`}>Projects</Link>
+                  <Link className='' href={`/#main`}>Home</Link>
+                  <Link href={`/#about`}>About</Link>
+                  <Link href={`/#knowledge`}>Knowledge</Link>
+                  <Link className='' href={`/#projects`}>Projects</Link>
                 </SheetDescription>
               </SheetHeader>
             </SheetContent>
@@ -44,10 +44,10 @@ const Navbar = () => {
 
         {/*For biger device*/}
         <ul className='md:flex md:mt-2 gap-3 mx-4 hidden'>
-          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#main`}>Home</Link></li>
-          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#about`}>About</Link></li>
-          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#knowledge`}>Knowledge</Link></li>
-          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#projects`}>Projects</Link></li>
+          <li><Link href={`/#main`}>Home</Link></li>
+          <li><Link href={`/#about`}>About</Link></li>
+          <li><Link href={`/#knowledge`}>Knowledge</Link></li>
+          <li><Link href={`/#projects`}>Projects</Link></li>
         </ul>
       </div>
     </nav >
