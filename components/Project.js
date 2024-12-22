@@ -14,7 +14,7 @@ const Project = () => {
 
 
     return (
-        <div id='projects' className='flex flex-col items-center justify-center'>
+        <div id='projects' className='flex flex-col items-center justify-center border-b'>
             <h1 className='text-3xl font-bold underline'>Projects</h1>
             <div className='cards my-24 grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5'>
                 {projects.map((items, index) => {
