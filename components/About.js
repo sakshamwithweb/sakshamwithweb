@@ -13,7 +13,7 @@ const About = () => {
             <h1 className='text-3xl font-bold underline'>About</h1>
             <div className='my-9'>
                 <Avatar>
-                    <AvatarImage src="/saksham.png" />
+                    <AvatarImage src="/image.jpg" />
                     <AvatarFallback>Saksham</AvatarFallback>
                 </Avatar>
             </div>
