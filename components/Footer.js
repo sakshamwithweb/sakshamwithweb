@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast"
 
 const Footer = () => {
     const [question, setQuestion] = useState("")
+    const [busy, setBusy] = useState(false)
     const { toast } = useToast()
     const sendQuestion = async () => {
         const req1 = await fetch("/api/sendQuestion", {
@@ -41,7 +42,9 @@ const Footer = () => {
             })
             return
         }
+        setBusy(true)
         await sendQuestion()
+        setBusy(false)
         setQuestion("")
     }
     return (
@@ -62,7 +65,7 @@ const Footer = () => {
                     <h1 className='text-xl mb-5'>Ask or give feedback</h1>
                     <div className="flex w-full max-w-sm items-center space-x-2">
                         <Input type="text" value={question} onChange={(e) => { setQuestion(e.target.value) }} placeholder="Enter here" />
-                        <Button onClick={handleSubmit}>Send</Button>
+                        <Button onClick={handleSubmit} className={`${busy ? "bg-[rgba(147,51,234,calc(var(--tw-text-opacity,1)*0.5))]" : ""}`} disabled={busy}>Send</Button>
                     </div>
                 </div>
             </div>
