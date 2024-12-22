@@ -50,14 +50,14 @@ const Footer = () => {
     return (
         <footer className=''>
             <div className='flex w-full h-48'>
-                <div className='w-1/2 flex flex-col justify-center items-center'>
-                    <h1 className='text-2xl'>Connect with me:</h1>
+                <div className='md:w-1/2 w-1/3 flex flex-col justify-center items-center'>
+                    <h1 className='text-2xl hidden md:block'>Connect with me:</h1>
                     <div className='flex flex-col gap-1'>
                         <a target='_blank' href='https://github.com/sakshamwithweb'>
-                            <img src='/github.png' className='h-14' />
+                            <img src='/github.png' className='h-10' />
                         </a>
                         <a href='https://www.linkedin.com/in/gourav-krishn-goswami' target='_blank'>
-                            <img src='/linkedin.png' className='h-14' />
+                            <img src='/linkedin.png' className='h-10' />
                         </a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center items-center'>Copyright &copy;{new Date().getFullYear()} All rights reserved | Made by Saksham Goswami.</div>
+            <div className='flex justify-center items-center'><span>Copyright &copy;{new Date().getFullYear()} All rights reserved&nbsp;</span><span className='hidden md:block'>| Made by Saksham Goswami.</span></div>
         </footer>
     )
 }
