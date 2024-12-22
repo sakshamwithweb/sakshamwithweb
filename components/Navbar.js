@@ -15,8 +15,10 @@ import { ModeToggle } from './ui/mode'
 
 const Navbar = () => {
   return (
-    <nav className='flex mx-auto sticky top-0 p-2 md:p-2 justify-between items-center backdrop-blur border border-b-gray-400/50'>
-      <div className='font-bold text-xl mx-2 md:mx-4'>SakshamWithWeb</div>
+    <nav className='flex mx-auto sticky top-0 p-2 md:p-2 justify-between items-center backdrop-blur border border-b-gray-400/50 z-50'>
+      <div className='font-bold text-xl mx-2 md:mx-4'>
+        <Link href={"/"}>SakshamWithWeb</Link>
+      </div>
       <div className='flex'>
         <span className='hidden md:block'> <ModeToggle /></span>
         {/*For Smaller device*/}
@@ -30,10 +32,10 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetTitle>SakshamWithWeb</SheetTitle>
                 <SheetDescription>
-                  <Link className='' href={"/"}>Home</Link>
-                  <Link className='' href={"/"}>About</Link>
-                  <Link className='' href={"/"}>Knowledge</Link>
-                  <Link className='' href={"/"}>Blog</Link>
+                  <Link className='' href={`${process.env.NEXT_PUBLIC_PATH}/#main`}>Home</Link>
+                  <Link href={`${process.env.NEXT_PUBLIC_PATH}/#about`}>About</Link>
+                  <Link href={`${process.env.NEXT_PUBLIC_PATH}/#knowledge`}>Knowledge</Link>
+                  <Link className='' href={`${process.env.NEXT_PUBLIC_PATH}/#projects`}>Projects</Link>
                 </SheetDescription>
               </SheetHeader>
             </SheetContent>
@@ -42,10 +44,10 @@ const Navbar = () => {
 
         {/*For biger device*/}
         <ul className='md:flex md:mt-2 gap-3 mx-4 hidden'>
-          <li><Link href={"/"}>Home</Link></li>
-          <li><Link href={"/"}>About</Link></li>
-          <li><Link href={"/"}>Knowledge</Link></li>
-          <li><Link href={"/"}>Blog</Link></li>
+          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#main`}>Home</Link></li>
+          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#about`}>About</Link></li>
+          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#knowledge`}>Knowledge</Link></li>
+          <li><Link href={`${process.env.NEXT_PUBLIC_PATH}/#projects`}>Projects</Link></li>
         </ul>
       </div>
     </nav >
