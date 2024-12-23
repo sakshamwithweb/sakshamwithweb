@@ -54,10 +54,10 @@ const Footer = () => {
                     <h1 className='text-2xl hidden md:block'>Connect with me:</h1>
                     <div className='flex flex-col gap-1'>
                         <a target='_blank' href='https://github.com/sakshamwithweb'>
-                            <img src='/github.png' className='h-10' />
+                            <img src='/github.png' alt="github" className='h-10' />
                         </a>
                         <a href='https://www.linkedin.com/in/gourav-krishn-goswami' target='_blank'>
-                            <img src='/linkedin.png' className='h-10' />
+                            <img src='/linkedin.png' alt="linkedin" className='h-10' />
                         </a>
                     </div>
                 </div>
