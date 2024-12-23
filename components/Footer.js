@@ -52,12 +52,15 @@ const Footer = () => {
             <div className='flex w-full h-48'>
                 <div className='md:w-1/2 w-1/3 flex flex-col justify-center items-center'>
                     <h1 className='text-2xl hidden md:block'>Connect with me:</h1>
-                    <div className='flex flex-col gap-1'>
+                    <div className='flex flex-col gap-1 items-center'>
                         <a target='_blank' href='https://github.com/sakshamwithweb'>
                             <img src='/github.png' alt="github" className='h-10' />
                         </a>
                         <a href='https://www.linkedin.com/in/gourav-krishn-goswami' target='_blank'>
                             <img src='/linkedin.png' alt="linkedin" className='h-10' />
+                        </a>
+                        <a href='mailto:contact@webwithsaksham.com' target='_blank'>
+                            <img src='/mail.png' alt="mail" className='h-10' />
                         </a>
                     </div>
                 </div>
