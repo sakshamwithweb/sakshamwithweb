@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className='md:hidden mx-4'>
           <span className='mx-4'> <ModeToggle /></span>
           <Sheet>
-            <SheetTrigger>
+            <SheetTrigger aria-label='hamburger'>
               <RxHamburgerMenu />
             </SheetTrigger>
             <SheetContent>
