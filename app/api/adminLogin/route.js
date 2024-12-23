@@ -2,6 +2,7 @@ import { Admin } from "@/lib/models/admin/admin"
 import connectDb from "@/lib/mongoose"
 import { NextResponse } from "next/server"
 import bcrypt from "bcrypt"
+import { rateLimit } from "@/lib/rateLimit";
 
 
 async function CheckHashPass(userPass, hashPass) {
@@ -16,6 +17,8 @@ async function CheckHashPass(userPass, hashPass) {
 
 export async function POST(req) {
     try {
+        const isAllowed = await rateLimit(req);
+        if (!isAllowed) return NextResponse.json({success:false,error:"Too many requests, try 5 minutes later"});
         const { userName, pass } = await req.json()
         console.log(userName, pass)
         await connectDb()
