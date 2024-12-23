@@ -23,7 +23,7 @@ const page = () => {
             })
             return
         }
-        const req1 = await fetch(`${process.env.NEXT_PUBLIC_LINK}/api/adminLogin`, {
+        const req1 = await fetch(`/api/adminLogin`, {
             method: "POST",
             headers: {
                 "Content-Type": "applicaion/json"
