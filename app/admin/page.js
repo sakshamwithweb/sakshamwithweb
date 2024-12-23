@@ -61,7 +61,7 @@ const page = () => {
                         <Label htmlFor="password">Password</Label>
                         <Input type="password" value={pass} onChange={(e) => { setPass(e.target.value) }} name="password" id="password" placeholder="Enter Password" />
                     </div>
-                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleSubmit} aria-label="Submit">Submit</Button>
                 </div>
             </form>
         </div>
