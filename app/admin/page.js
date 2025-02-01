@@ -36,7 +36,7 @@ const page = () => {
             const res1 = await req1.json()
             if (res1.success) {
                 toast({
-                    title: "✅ You are logged in.",
+                    title: "✅ You are logged in here and in rest you are sign out.",
                     description: "Now you could acccess admin page.",
                 })
                 
