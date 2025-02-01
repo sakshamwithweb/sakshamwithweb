@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 const page = () => {
     const [userName, setUserName] = useState("")
     const [pass, setPass] = useState("")
+    const [wait, setWait] = useState(false)
     const { toast } = useToast()
     const router = useRouter()
 
@@ -19,11 +20,13 @@ const page = () => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
+            setWait(true)
             if (userName.length == 0 || pass.length == 0) {
                 toast({
                     title: "🙀 All table is madetory",
                     description: "Please fill all the fields.",
                 })
+                setWait(false)
                 return
             }
             const req1 = await fetch(`/api/adminLogin`, {
@@ -36,10 +39,9 @@ const page = () => {
             const res1 = await req1.json()
             if (res1.success) {
                 toast({
-                    title: "✅ You are logged in here and in rest you are sign out.",
-                    description: "Now you could acccess admin page.",
+                    title: "✅ You are logged in here.",
+                    description: "In rest you are out.",
                 })
-                
                 router.push("/admin/dashboard")
             } else {
                 toast({
@@ -47,6 +49,7 @@ const page = () => {
                     description: res1.error,
                 })
             }
+            setWait(false)
             setUserName("")
             setPass("")
         } catch (error) {
@@ -72,7 +75,7 @@ const page = () => {
                         <Label htmlFor="password">Password</Label>
                         <Input type="password" value={pass} onChange={(e) => { setPass(e.target.value) }} name="password" id="password" placeholder="Enter Password" />
                     </div>
-                    <Button onClick={handleSubmit} aria-label="Submit">Submit</Button>
+                    <Button disabled={wait} onClick={handleSubmit} aria-label="Submit">Submit</Button>
                 </div>
             </form>
         </div>
