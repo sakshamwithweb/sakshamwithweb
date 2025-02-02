@@ -78,7 +78,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='backdrop-blur sticky top-0 py-2 md:px-11 px-2 border-b flex items-center justify-between'>
+    <nav className='backdrop-blur z-50 sticky top-0 py-2 md:px-11 px-2 border-b flex items-center justify-between'>
       <Link className='font-bold text-xl' href={"/admin/dashboard"}>SakshamWithWeb</Link>
       <div className='flex'>
         {/*For Smaller device*/}
@@ -92,7 +92,7 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetTitle>SakshamWithWeb</SheetTitle>
                 <SheetDescription>
-                  <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>Details</Link>
+                  <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>About</Link>
                   <Link className={`${pathname.includes("/blogs") && "underline font-bold"}`} href={"/admin/blogs"}>Blogs</Link>
                   <Link className={`${pathname.includes("/queries") && "underline font-bold"}`} href={"/admin/queries"}>Queries</Link>
                 </SheetDescription>
@@ -104,7 +104,7 @@ const Navbar = () => {
         {/*For biger device*/}
         <ul className='gap-3 md:flex hidden justify-center items-center'>
           <ModeToggle />
-          <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>Details</Link>
+          <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>About</Link>
           <Link className={`${pathname.includes("/blogs") && "underline font-bold"}`} href={"/admin/blogs"}>Blogs</Link>
           <Link className={`${pathname.includes("/queries") && "underline font-bold"}`} href={"/admin/queries"}>Queries</Link>
         </ul>
