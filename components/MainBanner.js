@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react'
 import Typed from 'typed.js';
 
-const MainBanner = () => {
+const MainBanner = ({about}) => {
     const el = useRef(null);
     useEffect(() => {
         const typed = new Typed(el.current, {
@@ -28,10 +28,10 @@ const MainBanner = () => {
     return (
         <div className='min-h-screen justify-center border-b text text-center gap-11 flex flex-col' id='main'>
             <div className=''>
-                <span className='text-4xl'>I'm&nbsp;</span><span className='text-4xl font-bold text-purple-600'>Saksham Goswami&nbsp;</span>
+                <span className='text-4xl'>I'm&nbsp;</span><span className='text-4xl font-bold text-purple-600'>{about.Name}&nbsp;</span>
             </div>
             <div>
-                <span className='text-4xl'>14 year old&nbsp;</span>
+                <span className='text-4xl'>{about.Age} year old&nbsp;</span>
                 <span className='text-4xl font-semibold' ref={el} />
             </div>
         </div>

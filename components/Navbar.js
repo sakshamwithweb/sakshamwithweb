@@ -92,7 +92,7 @@ const Navbar = () => {
               <SheetHeader>
                 <SheetTitle>SakshamWithWeb</SheetTitle>
                 <SheetDescription>
-                  <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>About</Link>
+                  <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>Dashboard</Link>
                   <Link className={`${pathname.includes("/blogs") && "underline font-bold"}`} href={"/admin/blogs"}>Blogs</Link>
                   <Link className={`${pathname.includes("/queries") && "underline font-bold"}`} href={"/admin/queries"}>Queries</Link>
                 </SheetDescription>
@@ -104,7 +104,7 @@ const Navbar = () => {
         {/*For biger device*/}
         <ul className='gap-3 md:flex hidden justify-center items-center'>
           <ModeToggle />
-          <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>About</Link>
+          <Link className={`${pathname.includes("/dashboard") && "underline font-bold"}`} href={"/admin/dashboard"}>Dashboard</Link>
           <Link className={`${pathname.includes("/blogs") && "underline font-bold"}`} href={"/admin/blogs"}>Blogs</Link>
           <Link className={`${pathname.includes("/queries") && "underline font-bold"}`} href={"/admin/queries"}>Queries</Link>
         </ul>

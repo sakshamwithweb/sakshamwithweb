@@ -24,7 +24,7 @@ export default function Home() {
   if (data) {
     return (
       <main className="">
-        <div><MainBanner /></div>
+        <div><MainBanner about={data.about}/></div>
         <div><About about={data.about} /></div>
         <div><Knowledge knowledge={data.knowledge} /></div>
         <div><Project project={data.project} /></div>

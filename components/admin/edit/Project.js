@@ -1,33 +1,105 @@
-import React from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { useToast } from '@/hooks/use-toast'
+import { Trash } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 
-const Project = () => {
-    const projects = [
-        { title: "Google-Shield", Made_With: "Next.js", Repositry: "https://github.com/sakshamwithweb/Google-Shield", Description: "Empower women with a protector and informer 24/7." },
-        { title: "Deliveryss", Made_With: "Next.js", Repositry: "https://github.com/sakshamwithweb/Deliveryss", Description: "Clone of Delhivery." },
-        { title: "Visisphere", Made_With: "Next.js", Repositry: "https://github.com/sakshamwithweb/visisphere", Description: "Learn any deep or hard topic by visualizing in 3d." },
-        { title: "Life Organizer", Made_With: "Next.js and OMI", Repositry: "https://github.com/sakshamwithweb/Life-Organizer", Description: "Organizing life as folder with summaries and extract task of each day." },
-        { title: "Hey Lawyer", Made_With: "Next.js and OMI", Repositry: "https://github.com/sakshamwithweb/hey-lawyer", Description: "Have a lawyer 24/7." },
-        { title: "Aspira", Made_With: "Next.js and OMI", Repositry: "https://github.com/sakshamwithweb/Aspira", Description: "Learn any soft skill from role model." },
-        { title: "Saksham With Web", Made_With: "Next.js", Repositry: "https://github.com/sakshamwithweb/sakshamwithweb", Description: "Saksham's Identity." }
-    ]
+const Project = ({ project }) => {
+    const [changedData, setChangedData] = useState(null)
+    const { toast } = useToast()
 
+    useEffect(() => {
+        setChangedData(project)
+    }, [])
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (changedData === project) {
+            toast({
+                title: "❌ Nothing has been changed.",
+                description: "Please either cancel editing or change something.",
+            })
+            return;
+        }
+        const req = await fetch(`/api/changeAdminDetails`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "applicaion/json"
+            },
+            body: JSON.stringify({ changedData, section: "project" })
+        })
+        const res = await req.json()
+        if (res.success) {
+            toast({
+                title: "✔️ Successfully changed",
+                description: "Your changed data is updated in database",
+            })
+            window.location.reload()
+            return;
+        }
+        toast({
+            title: "❌ Nothing has been changed.",
+            description: "Something went wrong in server.",
+        })
+        return;
+    }
 
-    return (
-        <div id='projects' className='flex flex-col items-center justify-center border-b'>
-            <h1 className='text-3xl font-bold underline'>Projects</h1>
-            <div className='cards my-24 grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5'>
-                {projects.map((items, index) => {
-                    return (
-                        <a href={items.Repositry} target='_blank' className='rounded-xl flex flex-col border md:max-w-40vw max-w-80vw overflow-auto' key={index}>
-                            <h1 className='text-2xl font-bold text-center p-5'>{items.title}</h1>
-                            <span className='text-center text-xl whitespace-nowrap'>{items.Description} Made using {items.Made_With}</span>
-                        </a>
-                    )
-                })}
+    if (changedData) {
+        return (
+            <div id='projects' className='border-b'>
+                <h1 className='text-3xl font-bold underline text-center'>Projects</h1>
+                <form className='flex flex-col gap-8 m-5'>
+                    {changedData.map((items, index) => {
+                        return (
+                            <div className='flex gap-4' key={index}>
+                                <Input className='w-40' onChange={(e) => {
+                                    setChangedData((prev) =>
+                                        prev.map((item, idx) =>
+                                            idx === index ? { ...item, title: e.target.value } : item
+                                        )
+                                    )
+                                }} value={items.title} />
+                                <Input className='w-40' onChange={(e) => {
+                                    setChangedData((prev) =>
+                                        prev.map((item, idx) =>
+                                            idx === index ? { ...item, Made_With: e.target.value } : item
+                                        )
+                                    )
+                                }} value={items.Made_With} />
+                                <Input className='w-40' onChange={(e) => {
+                                    setChangedData((prev) =>
+                                        prev.map((item, idx) =>
+                                            idx === index ? { ...item, Repositry: e.target.value } : item
+                                        )
+                                    )
+                                }} value={items.Repositry} />
+                                <Input className='w-40' onChange={(e) => {
+                                    setChangedData((prev) =>
+                                        prev.map((item, idx) =>
+                                            idx === index ? { ...item, Description: e.target.value } : item
+                                        )
+                                    )
+                                }} value={items.Description} />
+                                <Button onClick={(e) => {
+                                    e.preventDefault()
+                                    setChangedData([...changedData.slice(0, index), ...changedData.slice(index + 1)])
+                                }}><Trash /></Button>
+                            </div>
+                        )
+                    })}
+                    <div className='flex gap-4 justify-center items-center'>
+                        <Button onClick={(e) => {
+                            e.preventDefault()
+                            setChangedData([...changedData, { "title": "Project Name", "Made_With": "Technology used", "Repositry": "https://github.com/sakshamwithweb", "Description": "Sample Project" }])
+                        }}>Add More</Button>
+                        <Button onClick={handleSubmit}>Save</Button>
+                    </div>
+                </form>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return <p className='text-center m-5'>Loading ...</p>
+    }
 }
 
 export default Project
