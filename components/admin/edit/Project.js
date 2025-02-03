@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 const Project = ({ project }) => {
     const [changedData, setChangedData] = useState(null)
     const { toast } = useToast()
+    const [focusedInput, setFocusedInput] = useState(null)
 
     useEffect(() => {
         setChangedData(project)
@@ -52,28 +53,28 @@ const Project = ({ project }) => {
                     {changedData.map((items, index) => {
                         return (
                             <div className='flex gap-4' key={index}>
-                                <Input className='w-40' onChange={(e) => {
+                                <Input className='md:w-40 sm:w-40 sm:focus:w-40 md:focus:w-40 focus:w-20 w-10' onChange={(e) => {
                                     setChangedData((prev) =>
                                         prev.map((item, idx) =>
                                             idx === index ? { ...item, title: e.target.value } : item
                                         )
                                     )
                                 }} value={items.title} />
-                                <Input className='w-40' onChange={(e) => {
+                                <Input className='md:w-40 sm:focus:w-40 md:focus:w-40 focus:w-20 w-10 sm:w-40' onChange={(e) => {
                                     setChangedData((prev) =>
                                         prev.map((item, idx) =>
                                             idx === index ? { ...item, Made_With: e.target.value } : item
                                         )
                                     )
                                 }} value={items.Made_With} />
-                                <Input className='w-40' onChange={(e) => {
+                                <Input className='md:w-40 sm:focus:w-40 md:focus:w-40 focus:w-20 w-10 sm:w-40' onChange={(e) => {
                                     setChangedData((prev) =>
                                         prev.map((item, idx) =>
                                             idx === index ? { ...item, Repositry: e.target.value } : item
                                         )
                                     )
                                 }} value={items.Repositry} />
-                                <Input className='w-40' onChange={(e) => {
+                                <Input className='md:w-40 sm:focus:w-40 md:focus:w-40 focus:w-20 w-10 sm:w-40' onChange={(e) => {
                                     setChangedData((prev) =>
                                         prev.map((item, idx) =>
                                             idx === index ? { ...item, Description: e.target.value } : item
