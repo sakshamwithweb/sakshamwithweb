@@ -1,60 +1,79 @@
 "use client"
-import dynamic from 'next/dynamic';
-import React, { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useToast } from "@/hooks/use-toast"
 import { notFound, usePathname, useRouter } from 'next/navigation'
 
-const page = () => {
+// Memoize(storing like) the component mapping so as to could retreive the component instead of recreating(if exist)
+const componentCache = new Map()
+
+const getDynamicComponent = (compName) => {
+  if (!componentCache.has(compName)) {
+    componentCache.set(
+      compName,
+      dynamic(() => import(`@/components/admin/tabs/${compName}.js`), {
+        ssr: false,
+        loading: () => <div>Loading component...</div>
+      })
+    )
+  }
+  return componentCache.get(compName)
+}
+
+const Page = () => {
     const { toast } = useToast()
     const router = useRouter()
-    const pathName = usePathname() // /admin/dashboard like
-    const slug = usePathname().split("/")[usePathname().split("/").length - 1] // dashboard, queries like
+    const pathName = usePathname()
     const [logged, setLogged] = useState(false)
     const [validTabs] = useState(['/admin/dashboard', '/admin/blogs', '/admin/queries', '/admin/blogs/new'])
 
     if (!validTabs.includes(pathName)) return notFound()
 
-    // checking session
+    // Creating name and importing only when pathName is changed not on every render
+    const Component = useMemo(() => {
+        const compName = pathName.split("/")
+            .slice(1)
+            .map((url) => url.charAt(0).toUpperCase() + url.slice(1))
+            .join('')
+        return getDynamicComponent(compName)
+    }, [pathName])
+
     useEffect(() => {
         const checkSession = async () => {
-            const req = await fetch("/api/checkSession", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({})
-            })
-            const res = await req.json()
-            if (!res.success) {
+            try {
+                const req = await fetch("/api/checkSession", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                })
+                const res = await req.json()
+                if (!res.success) {
+                    toast({
+                        title: "❌ Something Went Wrong",
+                        description: "You are logged out",
+                    })
+                    router.push("/")
+                } else {
+                    setLogged(true)
+                }
+            } catch (error) {
                 toast({
-                    title: "❌ Something Went Wrong",
-                    description: "You are logged out",
+                    title: "❌ Error",
+                    description: "Failed to check session",
                 })
                 router.push("/")
-            } else {
-                setLogged(true)
             }
         }
         checkSession()
-    }, [])
+    }, [router, toast])
 
-    if (logged) {
-        // pathName.split("/") = ['', 'admin', 'blogs', 'new']
-        // .slice(1).map((url) => url.charAt(0).toUpperCase() + url.slice(1)).join('') = AdminBlogsNew
-        
-        const compName = pathName.split("/").slice(1).map((url) => url.charAt(0).toUpperCase() + url.slice(1)).join('')
-        
-        const Component = dynamic(() => import(`@/components/admin/tabs/${compName}.js`), {
-            ssr: false,
-        });
-        return (
-            < Component />
-        )
-    } else {
-        return (
-            <>Loading....</>
-        )
+    if (!logged) {
+        return <div>Loading...</div>
     }
+
+    return <Component />
 }
 
-export default page
+export default Page

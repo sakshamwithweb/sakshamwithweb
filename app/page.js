@@ -21,17 +21,19 @@ export default function Home() {
       return
     })()
   }, [])
-  if (data) {
-    return (
-      <main className="">
-        <div><MainBanner about={data.about}/></div>
-        <div><About about={data.about} /></div>
-        <div><Knowledge knowledge={data.knowledge} /></div>
-        <div><Project project={data.project} /></div>
-        <div></div>
-      </main>
-    );
-  } else {
+
+  if (!data) {
     return <p className="text-center">Loading..</p>
-  }
+  } 
+  
+  return (
+    <main className="">
+      <div><MainBanner about={data.about}/></div>
+      <div><About about={data.about} /></div>
+      <div><Knowledge knowledge={data.knowledge} /></div>
+      <div><Project project={data.project} /></div>
+      <div></div>
+    </main>
+  );
+
 }

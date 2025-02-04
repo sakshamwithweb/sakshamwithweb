@@ -42,26 +42,26 @@ const About = ({ about }) => {
         return;
     }
 
-    if (changedData) {
-        return (
-            <div id='about' className='flex flex-col justify-center items-center border-b'>
-                <h1 className='text-3xl font-bold underline'>About</h1>
-                <div className='m-9'>
-                    <form className='flex flex-col gap-5'>
-                        {Object.entries(changedData).map(([key, value], index) => (
-                            <div key={index} className='text-xl flex '>
-                                <strong>{key}:</strong>
-                                <Input value={value} onChange={(e) => setChangedData((prev) => ({ ...prev, [key]: e.target.value, }))} />
-                            </div>
-                        ))}
-                        <Button onClick={handleSubmit}>Save</Button>
-                    </form>
-                </div>
-            </div>
-        )
-    } else {
+    if (!changedData) {
         return <p className='m-2 text-center'>Loading...</p>
     }
+
+    return (
+        <div id='about' className='flex flex-col justify-center items-center border-b'>
+            <h1 className='text-3xl font-bold underline'>About</h1>
+            <div className='m-9'>
+                <form className='flex flex-col gap-5'>
+                    {Object.entries(changedData).map(([key, value], index) => (
+                        <div key={index} className='text-xl flex '>
+                            <strong>{key}:</strong>
+                            <Input value={value} onChange={(e) => setChangedData((prev) => ({ ...prev, [key]: e.target.value, }))} />
+                        </div>
+                    ))}
+                    <Button onClick={handleSubmit}>Save</Button>
+                </form>
+            </div>
+        </div>
+    )
 }
 
 export default About
