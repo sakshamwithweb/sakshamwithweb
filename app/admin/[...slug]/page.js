@@ -7,11 +7,12 @@ import { notFound, usePathname, useRouter } from 'next/navigation'
 const page = () => {
     const { toast } = useToast()
     const router = useRouter()
-    const slug = usePathname().split("/")[usePathname().split("/").length - 1]
+    const pathName = usePathname() // /admin/dashboard like
+    const slug = usePathname().split("/")[usePathname().split("/").length - 1] // dashboard, queries like
     const [logged, setLogged] = useState(false)
-    const [validTabs] = useState(['dashboard', 'blogs', 'queries'])
+    const [validTabs] = useState(['/admin/dashboard', '/admin/blogs', '/admin/queries', '/admin/blogs/new'])
 
-    if (!validTabs.includes(slug)) return notFound()
+    if (!validTabs.includes(pathName)) return notFound()
 
     // checking session
     useEffect(() => {
@@ -38,7 +39,7 @@ const page = () => {
     }, [])
 
     if (logged) {
-        const compName = slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase()// slug name capitalized
+        const compName = slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase() // slug name capitalized
         const Component = dynamic(() => import(`@/components/admin/tabs/${compName}.js`), {
             ssr: false,
         });
