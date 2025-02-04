@@ -39,7 +39,11 @@ const page = () => {
     }, [])
 
     if (logged) {
-        const compName = slug.charAt(0).toUpperCase() + slug.slice(1).toLowerCase() // slug name capitalized
+        // pathName.split("/") = ['', 'admin', 'blogs', 'new']
+        // .slice(1).map((url) => url.charAt(0).toUpperCase() + url.slice(1)).join('') = AdminBlogsNew
+        
+        const compName = pathName.split("/").slice(1).map((url) => url.charAt(0).toUpperCase() + url.slice(1)).join('')
+        
         const Component = dynamic(() => import(`@/components/admin/tabs/${compName}.js`), {
             ssr: false,
         });
