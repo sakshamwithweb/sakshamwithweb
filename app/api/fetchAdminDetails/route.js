@@ -1,4 +1,4 @@
-import { AdminDetails } from "@/lib/models/admin/adminDetails";
+import { AdminDetails } from "@/lib/models/adminDetails";
 import connectDb from "@/lib/mongoose";
 import { NextResponse } from "next/server";
 
