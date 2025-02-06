@@ -35,7 +35,8 @@ const Navbar = () => {
                   <Link className='' href={`/#main`}>Home</Link>
                   <Link href={`/#about`}>About</Link>
                   <Link href={`/#knowledge`}>Knowledge</Link>
-                  <Link className='' href={`/#projects`}>Projects</Link>
+                  <Link href={`https://blog.webwithsaksham.com/`}>Blog</Link>
+                  <Link href={`/#projects`}>Projects</Link>
                 </SheetDescription>
               </SheetHeader>
             </SheetContent>
@@ -47,6 +48,7 @@ const Navbar = () => {
           <li><Link href={`/#main`}>Home</Link></li>
           <li><Link href={`/#about`}>About</Link></li>
           <li><Link href={`/#knowledge`}>Knowledge</Link></li>
+          <li><Link href={`https://blog.webwithsaksham.com/`}>Blog</Link></li>
           <li><Link href={`/#projects`}>Projects</Link></li>
         </ul>
       </div>
