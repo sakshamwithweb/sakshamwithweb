@@ -9,28 +9,33 @@ const Footer = () => {
     const [question, setQuestion] = useState("")
     const [busy, setBusy] = useState(false)
     const { toast } = useToast()
+
     const sendQuestion = async () => {
-        const req1 = await fetch("/api/sendQuestion", {
-            method: "POST",
-            headers: {
-                "Content-Type": "applicaion/json"
-            },
-            body: JSON.stringify({ question: question })
-        })
-        const res1 = await req1.json()
-        if (res1.success) {
-            toast({
-                title: "✅ Sent Successfully",
-                description: "Your message will be read by us.",
+        try {
+            const req1 = await fetch("/api/sendQuestion", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "applicaion/json"
+                },
+                body: JSON.stringify({ question: question })
             })
-            return
-        } else {
-            toast({
-                title: "❌ Something Went Wrong",
-                description: `Contact us: ${process.env.NEXT_PUBLIC_EMAIl}`,
-            })
-            console.log(res1.error)
-            return
+            const res1 = await req1.json()
+            if (res1.success) {
+                toast({
+                    title: "✅ Sent Successfully",
+                    description: "Your message will be read by us.",
+                })
+                return
+            } else {
+                toast({
+                    title: "❌ Something Went Wrong",
+                    description: `Contact us: ${process.env.NEXT_PUBLIC_EMAIl}`,
+                })
+                console.log(res1.error)
+                return
+            }
+        } catch (error) {
+            console.error("Error:", error.message)
         }
     }
 
@@ -47,6 +52,7 @@ const Footer = () => {
         setBusy(false)
         setQuestion("")
     }
+    
     return (
         <footer className=''>
             <div className='flex w-full h-48'>

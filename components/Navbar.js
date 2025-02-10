@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
   Sheet,
@@ -11,7 +11,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { ModeToggle } from './ui/mode'
-import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   return (

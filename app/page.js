@@ -3,32 +3,45 @@ import About from "@/components/About";
 import Knowledge from "@/components/Knowledge";
 import MainBanner from "@/components/MainBanner";
 import Project from "@/components/Project";
+import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [data, setData] = useState(null)
+  const { toast } = useToast()
+  
   useEffect(() => {
     (async () => {
-      const req = await fetch(`/api/fetchAdminDetails`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "applicaion/json"
-        },
-        body: JSON.stringify({})
-      })
-      const res = await req.json()
-      setData(res.data)
-      return
+      try {
+        const req = await fetch(`/api/fetchAdminDetails`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "applicaion/json"
+          },
+          body: JSON.stringify({})
+        })
+        const res = await req.json()
+        if (res.success) {
+          setData(res.data)
+          return
+        }
+        toast({
+          title: "❌ Error during fetching Admin details",
+        })
+        return
+      } catch (error) {
+        console.error("Error during fetching Admin details:", error.message)
+      }
     })()
   }, [])
 
   if (!data) {
     return <p className="text-center">Loading..</p>
-  } 
-  
+  }
+
   return (
     <main className="">
-      <div><MainBanner about={data.about}/></div>
+      <div><MainBanner about={data.about} /></div>
       <div><About about={data.about} /></div>
       <div><Knowledge knowledge={data.knowledge} /></div>
       <div><Project project={data.project} /></div>
