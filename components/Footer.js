@@ -29,9 +29,8 @@ const Footer = () => {
             } else {
                 toast({
                     title: "❌ Something Went Wrong",
-                    description: `Contact us: ${process.env.NEXT_PUBLIC_EMAIl}`,
+                    description: `Write your issue in footer!`,
                 })
-                console.log(res1.error)
                 return
             }
         } catch (error) {
@@ -52,7 +51,7 @@ const Footer = () => {
         setBusy(false)
         setQuestion("")
     }
-    
+
     return (
         <footer className=''>
             <div className='flex w-full h-48'>
