@@ -9,28 +9,31 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data, setData] = useState(null)
   const { toast } = useToast()
-  
+
   useEffect(() => {
     (async () => {
       try {
         const req = await fetch(`/api/fetchAdminDetails`, {
           method: "POST",
           headers: {
-            "Content-Type": "applicaion/json"
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({})
         })
+        if (!req.ok) {
+          throw new Error("Error during fetching Admin details!");
+        }
         const res = await req.json()
         if (res.success) {
           setData(res.data)
-          return
+        } else {
+          throw new Error("Error during fetching Admin details!");
         }
-        toast({
-          title: "❌ Error during fetching Admin details",
-        })
-        return
       } catch (error) {
-        console.error("Error during fetching Admin details:", error.message)
+        toast({
+          title: `❌ ${error.message}`,
+          description: `Write your issue in footer!`,
+        })
       }
     })()
   }, [])
