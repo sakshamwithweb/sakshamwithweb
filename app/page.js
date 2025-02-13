@@ -21,13 +21,13 @@ export default function Home() {
           body: JSON.stringify({})
         })
         if (!req.ok) {
-          throw new Error("Error during fetching Admin details!");
+          throw new Error("Error while fetching Admin details!");
         }
         const res = await req.json()
         if (res.success) {
           setData(res.data)
         } else {
-          throw new Error("Error during fetching Admin details!");
+          throw new Error("Error while fetching Admin details!");
         }
       } catch (error) {
         toast({
