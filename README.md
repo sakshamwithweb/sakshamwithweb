@@ -17,7 +17,7 @@
 ![](https://github-readme-stats.vercel.app/api/wakatime?username=sakshamwithweb&layout=compact&theme=transparent)
 
 ### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=gruvbox)
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=transparent)
 
 ### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=arjav0703&limit=5&theme=dark&combine_all_yearly_contributions=true)
+![](https://github-contributor-stats.vercel.app/api?username=sakshamwithweb&limit=5&theme=transparent&combine_all_yearly_contributions=true)
