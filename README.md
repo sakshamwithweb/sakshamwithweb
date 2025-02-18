@@ -13,7 +13,7 @@
  - Chrome Extension Development
 
 ### Github stats::
-![](https://github-readme-stats.vercel.app/api?username=sakshamwithweb&show_icons=true&theme=transparent)<br/>
+![](https://github-readme-stats.vercel.app/api?username=sakshamwithweb&show_icons=true&theme=transparent)<br/><br/>
 ![](https://github-readme-stats.vercel.app/api/wakatime?username=sakshamwithweb&layout=compact&theme=transparent)
 
 ### ✍️ Random Dev Quote
