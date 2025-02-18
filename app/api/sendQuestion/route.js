@@ -1,15 +1,16 @@
 import { Question } from "@/lib/models/question";
 import connectDb from "@/lib/mongoose";
 import { NextResponse } from "next/server";
-
+import DOMPurify from "isomorphic-dompurify";
 
 export async function POST(params) {
     try {
         const { question } = await params.json();
-        if (!question || question?.trim()?.length == 0) throw new Error("question is empty");
+        const sanitizeQuestion = DOMPurify.sanitize(question);
+        if (!sanitizeQuestion || sanitizeQuestion?.trim()?.length == 0) throw new Error("question is empty");
         await connectDb()
         const newQ = new Question({
-            question: question
+            question: sanitizeQuestion
         })
         await newQ.save()
         return NextResponse.json({ success: true })
