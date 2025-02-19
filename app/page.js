@@ -27,7 +27,7 @@ export default function Home() {
         if (res.success) {
           setData(res.data)
         } else {
-          throw new Error("Error while fetching Admin details!");
+          throw new Error("Unable to fetch Admin details!");
         }
       } catch (error) {
         toast({
