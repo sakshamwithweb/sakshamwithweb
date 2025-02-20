@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 import {
   Sheet,
   SheetContent,
@@ -19,10 +20,10 @@ const Navbar = () => {
         <Link href={"/"}>SakshamWithWeb</Link>
       </div>
       <div className='flex'>
-        <span className='hidden md:block'> <ModeToggle /></span>
+        <span className='hidden md:block' data-tooltip-id="mode-toggle"> <ModeToggle /></span>
         {/*For Smaller device*/}
         <div className='md:hidden mx-4'>
-          <span className='mx-4'> <ModeToggle /></span>
+          <span className='mx-4' data-tooltip-id="mode-toggle"> <ModeToggle /></span>
           <Sheet>
             <SheetTrigger aria-label='hamburger'>
               <RxHamburgerMenu />
@@ -51,6 +52,10 @@ const Navbar = () => {
           <li><Link href={`/#projects`}>Projects</Link></li>
         </ul>
       </div>
+      <ReactTooltip
+        id="mode-toggle"
+        content="Switch the mode"
+      />
     </nav >
   )
 }
