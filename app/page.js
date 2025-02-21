@@ -1,6 +1,7 @@
 "use client"
 import About from "@/components/About";
 import Knowledge from "@/components/Knowledge";
+import { Loader } from "@/components/Loader";
 import MainBanner from "@/components/MainBanner";
 import Project from "@/components/Project";
 import { useToast } from "@/hooks/use-toast";
@@ -39,7 +40,7 @@ export default function Home() {
   }, [])
 
   if (!data) {
-    return <p className="text-center">Loading..</p>
+    return <Loader/>
   }
 
   return (
