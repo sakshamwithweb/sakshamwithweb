@@ -15,6 +15,6 @@ export async function POST(params) {
         await newQ.save()
         return NextResponse.json({ success: true })
     } catch (error) {
-        return NextResponse.json({ success: false, error: error.message })
+        return NextResponse.json({ success: false, error: error.message }, { status: 500 })
     }
 }

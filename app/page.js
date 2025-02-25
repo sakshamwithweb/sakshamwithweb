@@ -5,6 +5,7 @@ import { Loader } from "@/components/Loader";
 import MainBanner from "@/components/MainBanner";
 import Project from "@/components/Project";
 import { useToast } from "@/hooks/use-toast";
+import { getStatusMessage } from "@/lib/statusMessage";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -22,7 +23,8 @@ export default function Home() {
           body: JSON.stringify({})
         })
         if (!req.ok) {
-          throw new Error(`Error ${req.status}: ${req.statusText}`);
+          const statusText = await getStatusMessage(req.status)
+          throw new Error(`Error ${req.status}: ${statusText}`);
         }
         const res = await req.json()
         if (res.success) {
@@ -40,7 +42,7 @@ export default function Home() {
   }, [])
 
   if (!data) {
-    return <Loader/>
+    return <Loader />
   }
 
   return (

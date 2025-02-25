@@ -9,6 +9,6 @@ export async function POST() {
         if (!data) throw new Error("Unable to get data");
         return NextResponse.json({ data: data, success: true })
     } catch (error) {
-        return NextResponse.json({ success: false, message: "Unable to fetch data" })
+        return NextResponse.json({ success: false, message: "Unable to fetch data" }, { status: 500 })
     }
 }
