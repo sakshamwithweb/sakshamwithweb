@@ -5,6 +5,7 @@ import { Loader } from "@/components/Loader";
 import MainBanner from "@/components/MainBanner";
 import Project from "@/components/Project";
 import { useToast } from "@/hooks/use-toast";
+import { generateToken } from "@/lib/generateToken";
 import { getStatusMessage } from "@/lib/statusMessage";
 import { useEffect, useState } from "react";
 
@@ -15,12 +16,14 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       try {
+        const { token, id } = await generateToken()
         const req = await fetch(`/api/fetchAdminDetails`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`
           },
-          body: JSON.stringify({})
+          body: JSON.stringify({id})
         })
         if (!req.ok) {
           const statusText = await getStatusMessage(req.status)

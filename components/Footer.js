@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast"
 import DOMPurify from "isomorphic-dompurify";
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { getStatusMessage } from '@/lib/statusMessage'
+import { generateToken } from '@/lib/generateToken'
 
 const Footer = () => {
     const [question, setQuestion] = useState("")
@@ -16,12 +17,14 @@ const Footer = () => {
     const sendQuestion = async () => {
         try {
             const sanitizedQuestion = sanitizeInput(question);
+            const { token, id } = await generateToken()
             const req1 = await fetch("/api/sendQuestion", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`
                 },
-                body: JSON.stringify({ question: sanitizedQuestion })
+                body: JSON.stringify({ question: sanitizedQuestion, id })
             })
             if (!req1.ok) {
                 const statusText = await getStatusMessage(req1.status)
