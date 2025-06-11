@@ -6,11 +6,12 @@
  - [More about me](https://www.webwithsaksham.com)
 
 ### Currently working on:
- - VIP Studio(will give link soon)
+ - 3d Model Generator(will give link soon)
 
 ### Learning:
- - Python
- - Chrome Extension Development
+ - Blender and bpy
+ - Lark (parser in python)
+ - Problem Solving skill
 
 ### Github stats::
 ![](https://github-readme-stats.vercel.app/api?username=sakshamwithweb&show_icons=true&theme=transparent)<br/><br/>
