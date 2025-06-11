@@ -9,9 +9,9 @@ const redis = new Redis({
 })
 
 const allRateLimits = {
-  "/api/fetchAdminDetails": { requestsPerDuration: 20, durationInMinute: 5 },
+  "/api/fetchAdminDetails": { requestsPerDuration: 50, durationInMinute: 1 },
   "/api/sendQuestion": { requestsPerDuration: 1, durationInMinute: 5 },
-  "default": { requestsPerDuration: 5, durationInMinute: 5 },
+  "default": { requestsPerDuration: 20, durationInMinute: 1 },
 };
 
 export async function middleware(req) {
