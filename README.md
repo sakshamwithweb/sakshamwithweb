@@ -9,8 +9,6 @@
  - Visisphere(will give link soon)
 
 ### Learning:
- - Blender and bpy
- - Lark (parser in python)
  - Problem Solving skill
 
 ### Github stats::
