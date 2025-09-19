@@ -6,7 +6,7 @@
  - [More about me](https://www.webwithsaksham.com)
 
 ### Currently working on:
- - 3d Model Generator(will give link soon)
+ - Visisphere(will give link soon)
 
 ### Learning:
  - Blender and bpy
