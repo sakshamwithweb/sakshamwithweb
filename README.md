@@ -16,7 +16,7 @@
 ![](https://github-readme-stats.vercel.app/api/wakatime?username=sakshamwithweb&layout=compact&theme=transparent)
 
 ### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=transparent)
+![Quote](https://github-readme-quotes-bay.vercel.app/quote?theme=bear&animation=default&layout=default&font=PixelifySans&quoteType=random&bgColor=black&borderColor=purple)
 
 ### 🔝 Top Contributed Repo
 ![](https://github-contributor-stats.vercel.app/api?username=sakshamwithweb&limit=5&theme=transparent&combine_all_yearly_contributions=true)
