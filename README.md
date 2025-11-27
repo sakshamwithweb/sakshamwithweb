@@ -2,14 +2,14 @@
 
 ### About Me:
  - I am 15 year old Full Stack Web developer.
- - I make crazy and extraordinary stuff.
+ - I make stuff.
  - [More about me](https://www.webwithsaksham.com)
 
 ### Currently working on:
- - Visisphere(will give link soon)
+ -  [uConnect](https://github.com/sakshamwithweb/uConnect) ~Visisphere(delayed)~
 
 ### Learning:
- - Problem Solving skill
+ - Three.js and coding skill
 
 ### Github stats::
 ![](https://github-readme-stats.vercel.app/api?username=sakshamwithweb&show_icons=true&theme=transparent)<br/><br/>
